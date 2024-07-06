@@ -33,7 +33,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            z-index: 0;
         }
 
         .content.active {
@@ -81,7 +80,6 @@
             align-items: center;
             height: 100vh;
             text-align: center;
-            z-index: 2;
         }
 
         .redirect.active {
@@ -126,17 +124,16 @@
 
         .top-links {
             position: absolute;
-            top: 10px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
-            color: lime;
         }
     </style>
 </head>
 <body>
     <div class="top-links">
-        <p><a href="https://www.instagram.com/encoree219999/" target="_blank">Reiss</a></p>
+        <p><a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Reiss</a> | <a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Link</a></p>
     </div>
 
     <div class="content" id="successMessage">
@@ -147,4 +144,39 @@
     </div>
 
     <div class="main">
-        <h1>Would you like to join us as part of the rebe
+        <h1>Would you like to join us as part of the rebellion?</h1>
+        <button onclick="register()">Yes</button>
+        <button onclick="notInterested()">No</button>
+    </div>
+
+    <div class="redirect" id="redirectMessage">
+        <h2>When you feel like escaping society, consider joining us.</h2>
+    </div>
+
+    <div class="footer" id="footer">
+        <p>Rebels: <span id="volunteerCount">0</span></p>
+    </div>
+
+    <script>
+        let volunteerCount = 0;
+
+        function register() {
+            volunteerCount++;
+            updateVolunteerCount();
+            document.getElementById('successMessage').classList.add('active');
+            document.querySelector('.main').style.display = 'none';
+            document.querySelector('.redirect').style.display = 'none';
+        }
+
+        function notInterested() {
+            document.querySelector('.redirect').classList.add('active');
+            document.querySelector('.main').style.display = 'none';
+            document.querySelector('.content').style.display = 'none';
+        }
+
+        function updateVolunteerCount() {
+            document.getElementById('volunteerCount').textContent = volunteerCount;
+        }
+    </script>
+</body>
+</html>
