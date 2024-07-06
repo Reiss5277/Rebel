@@ -2,45 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join the Rebellion</title>
+    <meta http-equiv="refresh" content="5;url=index.html"> <!-- 自動重定向到首頁，延時5秒 -->
+    <title>Registration Successful</title>
     <style>
         body {
-            background-color: black;
-            color: lime;
+            background-image: url('path_to_your_image.jpg'); /* 更換成你上傳的大圖的路徑 */
+            background-size: cover;
+            background-position: center;
+            color: white;
             text-align: center;
             font-family: Arial, sans-serif;
+            height: 100vh; /* 讓背景填滿整個屏幕 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .container {
-            padding-top: 20%;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: lime;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            margin: 10px;
-        }
-        button:hover {
-            background-color: #32CD32;
+        h1 {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 文字陰影效果 */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Are you willing to join us as rebels?</h1>
-        <button onclick="register()">Willing</button>
-        <button onclick="alert('Maybe another time!')">Not Willing</button>
+    <div>
+        <h1>Registration Successful!</h1>
     </div>
-
-    <script>
-        function register() {
-            alert('Registration successful!');
-            window.location.href = 'success.html'; // 跳轉到註冊成功畫面的URL
-        }
-    </script>
 </body>
 </html>
