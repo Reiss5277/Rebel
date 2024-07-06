@@ -11,12 +11,13 @@
             font-family: Arial, sans-serif;
             background-color: black;
             color: lime;
-            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .content {
@@ -43,6 +44,20 @@
             margin-bottom: 20px;
         }
 
+        .main {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
         button {
             padding: 10px 20px;
             font-size: 1rem;
@@ -61,14 +76,14 @@
 
         .redirect {
             display: none;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
         }
 
         .redirect.active {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
         }
 
         .redirect h2 {
@@ -76,37 +91,21 @@
             margin-bottom: 20px;
         }
 
-        .content-text {
-            font-size: 2rem;
-            font-weight: normal;
-            text-align: center;
-            line-height: 1.5;
-        }
-
-        .centered-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .centered-text h2 {
-            margin: 10px 0;
-        }
-
         .footer {
-            margin-top: auto;
             padding: 20px;
             width: 100%;
-            background-color: transparent; /* 背景透明 */
+            background-color: transparent;
+            position: fixed;
+            bottom: 0;
+            text-align: center;
+            z-index: 1;
         }
 
         .footer p {
             color: lime;
             font-size: 1rem;
-            margin: 0;
-            display: inline; /* 行內顯示 */
+            margin: 5px 0;
+            display: inline-block;
         }
 
         .footer a {
@@ -116,6 +115,11 @@
 
         .footer a:hover {
             text-decoration: underline;
+        }
+
+        .volunteer-count {
+            margin-top: 10px;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -138,8 +142,8 @@
     </div>
 
     <div class="footer" id="footer">
-        <p style="margin-bottom: 10px;">Volunteers: <span id="volunteerCount">0</span></p>
-        <p><a href="https://www.instagram.com/encoree219999/" target="_blank">Link</a></p>
+        <p>Rebels: <span id="volunteerCount">0</span></p>
+        <p>Contact Reiss <a href="https://www.instagram.com/encoree219999/" target="_blank">Link</a></p>
     </div>
 
     <script>
@@ -160,4 +164,8 @@
         }
 
         function updateVolunteerCount() {
- 
+            document.getElementById('volunteerCount').textContent = volunteerCount;
+        }
+    </script>
+</body>
+</html>
