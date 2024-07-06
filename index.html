@@ -71,6 +71,10 @@
         <button onclick="notInterested()">No</button>
     </div>
 
+    <div class="redirect" id="redirectMessage">
+        <h2>When you feel like escaping society, consider joining us.</h2>
+    </div>
+
     <script>
         function register() {
             document.getElementById('successMessage').classList.add('active');
@@ -78,7 +82,12 @@
         }
 
         function notInterested() {
-            // You can add handling for when the user is not interested, or leave it blank
+            // Redirect to the escape message
+            document.getElementById('redirectMessage').style.display = 'block';
+            document.body.style.backgroundColor = 'black';
+            document.body.style.color = 'lime';
+            document.querySelector('.main').style.display = 'none';
+            document.querySelector('.content').style.display = 'none';
         }
     </script>
 </body>
