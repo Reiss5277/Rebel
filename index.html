@@ -129,6 +129,10 @@
                 position: static; /* 在移动设备上取消固定定位 */
                 margin-top: 20px; /* 顶部与主内容之间的间距 */
             }
+
+            .main {
+                margin-bottom: 60px; /* 在底部留出空间用于 "REISS LINK" */
+            }
         }
     </style>
 </head>
@@ -166,6 +170,7 @@
             document.getElementById('successMessage').classList.add('active');
             document.querySelector('.main').style.display = 'none';
             document.querySelector('.redirect').style.display = 'none';
+            moveReissLinkToFooter(); // 移动 "REISS LINK" 到底部
         }
 
         function notInterested() {
@@ -178,6 +183,13 @@
             // 可以在需要显示叛军人数的地方使用 volunteerCount
             // 例如在其他消息或者日志中显示
             console.log(`Current number of volunteers: ${volunteerCount}`);
+        }
+
+        function moveReissLinkToFooter() {
+            let reissLink = document.querySelector('.footer p a');
+            let footer = document.querySelector('.footer');
+            footer.innerHTML = ''; // 清空原先的内容
+            footer.appendChild(reissLink); // 将 "REISS LINK" 添加到底部
         }
     </script>
 </body>
