@@ -157,26 +157,33 @@
         <p>Rebels: <span id="volunteerCount">0</span></p>
     </div>
 
-    <script>
-        let volunteerCount = 0;
+<script>
+    // 从本地存储中获取叛軍人數，如果没有则设为0
+    let volunteerCount = localStorage.getItem('volunteerCount') || 0;
 
-        function register() {
-            volunteerCount++;
-            updateVolunteerCount();
-            document.getElementById('successMessage').classList.add('active');
-            document.querySelector('.main').style.display = 'none';
-            document.querySelector('.redirect').style.display = 'none';
-        }
+    function register() {
+        volunteerCount++;
+        updateVolunteerCount();
+        // 将叛軍人數保存到本地存储中
+        localStorage.setItem('volunteerCount', volunteerCount);
+        document.getElementById('successMessage').classList.add('active');
+        document.querySelector('.main').style.display = 'none';
+        document.querySelector('.redirect').style.display = 'none';
+    }
 
-        function notInterested() {
-            document.querySelector('.redirect').classList.add('active');
-            document.querySelector('.main').style.display = 'none';
-            document.querySelector('.content').style.display = 'none';
-        }
+    function notInterested() {
+        document.querySelector('.redirect').classList.add('active');
+        document.querySelector('.main').style.display = 'none';
+        document.querySelector('.content').style.display = 'none';
+    }
 
-        function updateVolunteerCount() {
-            document.getElementById('volunteerCount').textContent = volunteerCount;
-        }
-    </script>
+    function updateVolunteerCount() {
+        document.getElementById('volunteerCount').textContent = volunteerCount;
+    }
+
+    // 初次加载页面时更新叛軍人數显示
+    updateVolunteerCount();
+</script>
+
 </body>
 </html>
