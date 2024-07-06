@@ -6,40 +6,80 @@
     <title>Join the Rebellion</title>
     <style>
         body {
-            background-color: black;
-            color: lime;
-            text-align: center;
+            margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
+            background-color: black; /* 背景顏色設置為黑色 */
+            color: lime; /* 文字顏色設置為螢光綠 */
+            height: 100vh; /* 使用視窗高度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* 文字置中 */
         }
-        .container {
-            padding-top: 20%;
+
+        .content {
+            background-image: url('https://raw.githubusercontent.com/Reiss5277/Rebel/main/111.jpg'); /* 背景圖片的URL */
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none; /* 隱藏內容區域，等待顯示成功畫面時顯示 */
+            justify-content: center;
+            align-items: center;
+            text-align: center;
         }
+
+        .content.active {
+            display: flex; /* 顯示內容區域 */
+        }
+
+        .message {
+            font-size: 2rem; /* 消息文本的字體大小 */
+            margin-bottom: 20px;
+        }
+
         button {
             padding: 10px 20px;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: lime;
-            color: black;
+            font-size: 1rem;
+            background-color: #4CAF50; /* 綠色按鈕 */
+            color: white;
             border: none;
-            border-radius: 5px;
+            cursor: pointer;
             margin: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #32CD32;
+            background-color: #45a049; /* 鼠標懸停時變色 */
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Are you willing to join us as rebels?</h1>
-        <button onclick="register()">Willing</button>
-        <button onclick="alert('Maybe another time!')">Not Willing</button>
+    <div class="content" id="successMessage">
+        <h2>註冊成功！</h2>
+        <!-- 這裡放置成功註冊後的內容 -->
+    </div>
+
+    <div class="main">
+        <h1>你願意加入我們成為反叛軍嗎？</h1>
+        <button onclick="register()">願意</button>
+        <button onclick="notInterested()">不願意</button>
     </div>
 
     <script>
         function register() {
-            alert('Registration successful!');
-            window.location.href = 'success.html'; // 跳轉到註冊成功畫面的URL
+            // 顯示註冊成功的畫面
+            document.getElementById('successMessage').classList.add('active');
+            // 可以在此處添加其他註冊成功後的操作，如跳轉頁面或其他提示
+        }
+
+        function notInterested() {
+            // 可以添加不願意的處理邏輯，或是直接留空
         }
     </script>
 </body>
