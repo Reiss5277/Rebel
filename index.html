@@ -77,25 +77,26 @@
 
         .content-text {
             font-size: 1.5rem;
-            line-height: 1.5;
+            font-weight: normal;
             text-align: center;
+            line-height: 1.5;
         }
     </style>
 </head>
 <body>
     <div class="content" id="successMessage">
-        <h2 style="font-size: 2rem;">You've joined the rebellion.</h2>
-        <h3 class="content-text" style="font-size: 1.5rem; line-height: 1.5;">Stay skeptical of this society.<br><br>Fight for your own justice.</h3>
+        <h2>You've joined the rebellion.</h2>
+        <p class="content-text">Stay skeptical of this society.<br><br>Fight for your own justice.</p>
     </div>
 
     <div class="main">
-        <h1 style="font-size: 2rem;">Would you like to join us as part of the rebellion?</h1>
-        <button onclick="register()" style="font-size: 1rem;">Yes</button>
-        <button onclick="notInterested()" style="font-size: 1rem;">No</button>
+        <h1>Would you like to join us as part of the rebellion?</h1>
+        <button onclick="register()">Yes</button>
+        <button onclick="notInterested()">No</button>
     </div>
 
     <div class="redirect" id="redirectMessage">
-        <h2 style="font-size: 2rem;">When you feel like escaping society, consider joining us.</h2>
+        <h2>When you feel like escaping society, consider joining us.</h2>
     </div>
 
     <script>
