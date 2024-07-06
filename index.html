@@ -18,6 +18,7 @@
             text-align: center;
             height: 100vh;
             overflow: hidden;
+            position: relative; /* 添加相对定位，以便下方的链接可以固定在底部 */
         }
 
         .content {
@@ -129,6 +130,14 @@
             transform: translateX(-50%);
             z-index: 2;
         }
+
+        /* 移动设备上的样式调整 */
+        @media (max-width: 768px) {
+            .footer {
+                position: static; /* 在移动设备上取消固定定位 */
+                margin-top: 20px; /* 顶部与主内容之间的间距 */
+            }
+        }
     </style>
 </head>
 <body>
@@ -155,49 +164,31 @@
 
     <div class="footer" id="footer">
         <p>Rebels: <span id="volunteerCount">Loading...</span></p>
+        <p><a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Reiss</a> | <a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Link</a></p>
     </div>
 
     <script>
-        // 页面加载完毕后，从服务器获取叛軍人數并更新显示
-        document.addEventListener('DOMContentLoaded', function() {
-            fetchVolunteerCount();
-        });
-
-        function fetchVolunteerCount() {
-            fetch('/api/getVolunteerCount') // 假设这里是服务器上获取叛軍人數的 API
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('volunteerCount').textContent = data.volunteerCount;
-                })
-                .catch(error => {
-                    console.error('Error fetching volunteer count:', error);
-                });
-        }
+        // 从本地存储中获取叛軍人數，如果没有则设为0
+        let volunteerCount = parseInt(localStorage.getItem('volunteerCount')) || 0;
 
         function register() {
-            fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ increment: 1 }), // 发送给服务器的数据
-            })
-            .then(response => response.json())
-            .then(data => {
-                fetchVolunteerCount(); // 更新叛軍人數显示
-                document.getElementById('successMessage').classList.add('active');
-                document.querySelector('.main').style.display = 'none';
-                document.querySelector('.redirect').style.display = 'none';
-            })
-            .catch(error => {
-                console.error('Error registering:', error);
-            });
+            volunteerCount++;
+            updateVolunteerCount();
+            // 将叛軍人數保存到本地存储中
+            localStorage.setItem('volunteerCount', volunteerCount);
+            document.getElementById('successMessage').classList.add('active');
+            document.querySelector('.main').style.display = 'none';
+            document.querySelector('.redirect').style.display = 'none';
         }
 
         function notInterested() {
             document.querySelector('.redirect').classList.add('active');
             document.querySelector('.main').style.display = 'none';
             document.querySelector('.content').style.display = 'none';
+        }
+
+        function updateVolunteerCount() {
+            document.getElementById('volunteerCount').textContent = volunteerCount;
         }
     </script>
 </body>
