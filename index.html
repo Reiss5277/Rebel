@@ -81,12 +81,26 @@
             text-align: center;
             line-height: 1.5;
         }
+
+        .centered-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .centered-text h2 {
+            margin: 10px 0;
+        }
     </style>
 </head>
 <body>
     <div class="content" id="successMessage">
-        <h2>You've joined the rebellion.</h2>
-        <h2>Fight for the world.</h2>
+        <div class="centered-text">
+            <h2>You've joined the rebellion.</h2>
+            <h2>Fight for the world.</h2>
+        </div>
     </div>
 
     <div class="main">
