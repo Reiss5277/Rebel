@@ -133,6 +133,12 @@
             .main {
                 margin-bottom: 60px; /* 在底部留出空间用于 "REISS LINK" */
             }
+
+            .footer.fixed-bottom {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -188,6 +194,7 @@
         function moveReissLinkToFooter() {
             let reissLink = document.querySelector('.footer p a');
             let footer = document.querySelector('.footer');
+            footer.classList.add('fixed-bottom'); // 添加固定底部的样式类
             footer.innerHTML = ''; // 清空原先的内容
             footer.appendChild(reissLink); // 将 "REISS LINK" 添加到底部
         }
