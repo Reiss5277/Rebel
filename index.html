@@ -100,6 +100,7 @@
             bottom: 0;
             text-align: center;
             z-index: 1;
+            display: none; /* 删除底部链接的显示 */
         }
 
         .footer p {
@@ -123,14 +124,6 @@
             font-size: 1.2rem;
         }
 
-        .top-links {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
         /* 移动设备上的样式调整 */
         @media (max-width: 768px) {
             .footer {
@@ -141,10 +134,6 @@
     </style>
 </head>
 <body>
-    <div class="top-links">
-        <p><a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Reiss</a> | <a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Link</a></p>
-    </div>
-
     <div class="content" id="successMessage">
         <div class="centered-text">
             <h2>You've joined the rebellion.</h2>
@@ -162,19 +151,14 @@
         <h2>When you feel like escaping society, consider joining us.</h2>
     </div>
 
-    <div class="footer" id="footer">
-        <p>Rebels: <span id="volunteerCount">Loading...</span></p>
-        <p><a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Reiss</a> | <a href="https://www.instagram.com/encoree219999/" target="_blank" style="color: lime;">Link</a></p>
-    </div>
-
     <script>
-        // 从本地存储中获取叛軍人數，如果没有则设为0
+        // 从本地存储中获取叛军人数，如果没有则设为0
         let volunteerCount = parseInt(localStorage.getItem('volunteerCount')) || 0;
 
         function register() {
             volunteerCount++;
             updateVolunteerCount();
-            // 将叛軍人數保存到本地存储中
+            // 将叛军人数保存到本地存储中
             localStorage.setItem('volunteerCount', volunteerCount);
             document.getElementById('successMessage').classList.add('active');
             document.querySelector('.main').style.display = 'none';
@@ -188,7 +172,9 @@
         }
 
         function updateVolunteerCount() {
-            document.getElementById('volunteerCount').textContent = volunteerCount;
+            // 可以在需要显示叛军人数的地方使用 volunteerCount
+            // 例如在其他消息或者日志中显示
+            console.log(`Current number of volunteers: ${volunteerCount}`);
         }
     </script>
 </body>
