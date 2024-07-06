@@ -57,6 +57,23 @@
         button:hover {
             background-color: #45a049;
         }
+
+        .redirect {
+            display: none;
+        }
+
+        .redirect.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .redirect h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -78,14 +95,12 @@
     <script>
         function register() {
             document.getElementById('successMessage').classList.add('active');
-            // Additional actions after successful registration can be added here
+            document.querySelector('.main').style.display = 'none';
+            document.querySelector('.redirect').style.display = 'none';
         }
 
         function notInterested() {
-            // Redirect to the escape message
-            document.getElementById('redirectMessage').style.display = 'block';
-            document.body.style.backgroundColor = 'black';
-            document.body.style.color = 'lime';
+            document.querySelector('.redirect').classList.add('active');
             document.querySelector('.main').style.display = 'none';
             document.querySelector('.content').style.display = 'none';
         }
