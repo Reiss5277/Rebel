@@ -9,17 +9,17 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-color: black; /* 背景顏色設置為黑色 */
-            color: lime; /* 文字顏色設置為螢光綠 */
-            height: 100vh; /* 使用視窗高度 */
+            background-color: black;
+            color: lime;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center; /* 文字置中 */
+            text-align: center;
         }
 
         .content {
-            background-image: url('https://raw.githubusercontent.com/Reiss5277/Rebel/main/111.jpg'); /* 背景圖片的URL */
+            background-image: url('https://raw.githubusercontent.com/Reiss5277/Rebel/main/111.jpg');
             background-size: cover;
             background-position: center;
             width: 100%;
@@ -27,25 +27,25 @@
             position: absolute;
             top: 0;
             left: 0;
-            display: none; /* 隱藏內容區域，等待顯示成功畫面時顯示 */
+            display: none;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
 
         .content.active {
-            display: flex; /* 顯示內容區域 */
+            display: flex;
         }
 
         .message {
-            font-size: 2rem; /* 消息文本的字體大小 */
+            font-size: 2rem;
             margin-bottom: 20px;
         }
 
         button {
             padding: 10px 20px;
             font-size: 1rem;
-            background-color: #4CAF50; /* 綠色按鈕 */
+            background-color: #4CAF50;
             color: white;
             border: none;
             cursor: pointer;
@@ -55,31 +55,30 @@
         }
 
         button:hover {
-            background-color: #45a049; /* 鼠標懸停時變色 */
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
     <div class="content" id="successMessage">
-        <h2>註冊成功！</h2>
-        <!-- 這裡放置成功註冊後的內容 -->
+        <h2>Registration Successful!</h2>
+        <!-- Add content for successful registration here -->
     </div>
 
     <div class="main">
-        <h1>你願意加入我們成為反叛軍嗎？</h1>
-        <button onclick="register()">願意</button>
-        <button onclick="notInterested()">不願意</button>
+        <h1>Would you like to join us as part of the rebellion?</h1>
+        <button onclick="register()">Yes</button>
+        <button onclick="notInterested()">No</button>
     </div>
 
     <script>
         function register() {
-            // 顯示註冊成功的畫面
             document.getElementById('successMessage').classList.add('active');
-            // 可以在此處添加其他註冊成功後的操作，如跳轉頁面或其他提示
+            // Additional actions after successful registration can be added here
         }
 
         function notInterested() {
-            // 可以添加不願意的處理邏輯，或是直接留空
+            // You can add handling for when the user is not interested, or leave it blank
         }
     </script>
 </body>
