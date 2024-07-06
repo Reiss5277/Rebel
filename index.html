@@ -13,6 +13,7 @@
             color: lime;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
@@ -95,15 +96,21 @@
         }
 
         .footer {
-            position: absolute;
-            bottom: 20px;
+            margin-top: auto;
+            padding: 20px;
             width: 100%;
+            background-color: #333;
+        }
+
+        .footer p {
+            color: white;
+            font-size: 1rem;
+            margin: 0;
         }
 
         .footer a {
             color: lime;
             text-decoration: none;
-            font-size: 1rem;
         }
 
         .footer a:hover {
@@ -129,12 +136,17 @@
         <h2>When you feel like escaping society, consider joining us.</h2>
     </div>
 
-    <div class="footer">
+    <div class="footer" id="footer">
+        <p>Volunteers: <span id="volunteerCount">0</span></p>
         <p>Contact: Reiss - <a href="https://www.instagram.com/encoree219999/" target="_blank">Instagram</a></p>
     </div>
 
     <script>
+        let volunteerCount = 0;
+
         function register() {
+            volunteerCount++;
+            updateVolunteerCount();
             document.getElementById('successMessage').classList.add('active');
             document.querySelector('.main').style.display = 'none';
             document.querySelector('.redirect').style.display = 'none';
@@ -144,6 +156,10 @@
             document.querySelector('.redirect').classList.add('active');
             document.querySelector('.main').style.display = 'none';
             document.querySelector('.content').style.display = 'none';
+        }
+
+        function updateVolunteerCount() {
+            document.getElementById('volunteerCount').textContent = volunteerCount;
         }
     </script>
 </body>
