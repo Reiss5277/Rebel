@@ -1,4 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Rebellion</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: lime;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
+        .content {
+            background-image: url('https://raw.githubusercontent.com/Reiss5277/Rebel/main/111.jpg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+            justify-content: center;
+            align-items: center;
             text-align: center;
         }
 
@@ -53,20 +84,18 @@
 </head>
 <body>
     <div class="content" id="successMessage">
-        <h2>You've joined the rebellion.</h2><br>
-        <br>
-        <p class="content-text">Stay skeptical of this society.<br>
-            <br>Fight for your own justice.</p>
+        <h2 style="font-size: 2rem;">You've joined the rebellion.</h2>
+        <p class="content-text" style="font-size: 1.5rem; line-height: 1.5;">Stay skeptical of this society.<br><br>Fight for your own justice.</p>
     </div>
-    
+
     <div class="main">
-        <h1>Would you like to join us as part of the rebellion?</h1>
-        <button onclick="register()">Yes</button>
-        <button onclick="notInterested()">No</button>
+        <h1 style="font-size: 2rem;">Would you like to join us as part of the rebellion?</h1>
+        <button onclick="register()" style="font-size: 1rem;">Yes</button>
+        <button onclick="notInterested()" style="font-size: 1rem;">No</button>
     </div>
 
     <div class="redirect" id="redirectMessage">
-        <h2>When you feel like escaping society, consider joining us.</h2>
+        <h2 style="font-size: 2rem;">When you feel like escaping society, consider joining us.</h2>
     </div>
 
     <script>
